@@ -1,0 +1,132 @@
+<html>
+    <head>
+    <title>form for hotel booking</title>
+    <style> 
+    body{
+        background: linear-gradient(to bottom right, #549d9d, #e38d5b);
+    }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color:#FF99FF;
+            padding:20px;
+            border-radius:10px;
+        }
+        .form-container input, .form-container textarea, .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: rgb(255,216,20); 
+            cursor: pointer;
+        }
+        button:hover{
+        background-color:rgb(255,135,0);
+        }
+        .Method{
+            max-width: 500px;
+            margin:10px auto;
+            padding:20px;
+            border-radius:10px;
+            background-color:#FF99FF;
+        }
+        .gender-container, .language-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .gender-container input, .language-container input {
+            width: auto;
+            margin-right: 5px;
+        }
+        .form-container select{
+        width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;}
+label{
+    animation: slideIn 4s ease-out;
+}
+            @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    </style>
+    <script></script>
+</head>
+    <body>
+      
+        <div id="booking" class="content">
+            <h1 style ="text-align : center ;">FORM</h1>
+            <hr>
+            <div class="form-container">
+                <form action="[form-action-link]" method="POST">
+<hr>
+                    <label for="name"><b>First Name</b></label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="name"><b>Last Name</b></label>
+                    <input type="text" id="name" name="name" required>
+<hr>
+<br>
+                    <div style="display:flex; gap:20px; text-align:center;" >
+                    <label><b>Male</b>
+                    <input type="radio" id="UPI" name="fav_language"></label>
+                    <label><b>Female</b>
+                    <input type="radio" id="CRE" name="fav_language"></label>
+                    <label><b>Other</b>
+                    <input type="radio" id="cash" name="fav_language">
+                    </label>
+                </div>
+                    <label for="email"><b>Email:</b></label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="subject"><b>Subject of Interest:</b></label>
+                    <select id="subject" name="subject" required>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <br>
+                </select>
+                <div style="display:flex; margin:10px; " >
+                <input type="checkbox" value="Bike">
+  <label for="vehicle1"><b> English</b></label>
+  <input type="checkbox" value="Car">
+  <label for="vehicle2"> <b>Hindi</b></label>
+  <input type="checkbox" value="Boat">
+  <label for="vehicle3"> <b>Telegu</b></label>
+  </div>
+
+                    <label for="number"><b>Contact Number</b></label>
+                    <input type="tel" id="number" required>
+    
+                    <label for="checkin"><b>Date of birth:</b></label>
+                    <input type="date" id="checkin" name="checkin" required>
+
+                    <label for="address"><b>Address:</b></label>
+            <textarea id="address" name="address" required></textarea>
+
+            <label for="pincode"><b>Pin Code:</b></label>
+            <input type="text" id="pincode" name="pincode" required>
+
+            <label for="state"><b>State:</b></label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="country"><b>Country:</b></label>
+            <input type="text" id="country" name="country" required>
+    
+                    <button type="reset" style=" background-color:rgb(242, 71, 71);">Reset</button>
+            <button type="submit" style=" background-color:rgb(60, 224, 60);" >Submit</button>
+                </form>
+                </div>
+    </body>
+</html>
