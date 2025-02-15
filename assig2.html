@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIT Warangal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header styles */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 1rem;
+        }
+
+        .institute-name {
+            color: #00366d;
+        }
+
+        /* Navigation styles */
+        .navbar {
+            background: #00366d;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover{
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Announcements ticker */
+        .announcements {
+            background: #f0f0f0;
+            padding: 0.5rem;
+            overflow: hidden;
+        }
+
+        .ticker {
+            white-space: nowrap;
+            animation: ticker 20s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Image Slider */
+        .slider {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            animation: slideshow 20s infinite;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide:nth-child(1) { animation-delay: 0s; }
+        .slide:nth-child(2) { animation-delay: 5s; }
+        .slide:nth-child(3) { animation-delay: 10s; }
+        .slide:nth-child(4) { animation-delay: 15s; }
+
+        @keyframes slideshow {
+            0%, 20% { opacity: 1; }
+            25%, 95% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* News & Events */
+        .news-events {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+            background: #f8f8f8;
+        }
+
+        .news-section, .events-section {
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: #00366d;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #00366d;
+        }
+
+        .news-list, .events-list {
+            list-style: none;
+        }
+
+        .news-list li, .events-list li {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Campus Life */
+        .campus-life {
+            padding: 2rem;
+        }
+
+        .campus-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .campus-image {
+            height: 200px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .campus-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .campus-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            background:#404040;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        .social-icons {
+            margin-top: 0.5rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <img src="logo.jpg" alt="NITW Logo" class="logo">
+        <h1 class="institute-name">National Institute of Technology, Warangal</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Academics</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Campus Life</a></li>
+        </ul>
+    </nav>
+
+    <!-- Announcements -->
+    <div class="announcements">
+        <div class="ticker">
+            🔴 Admissions Open for 2025-26 Academic Year | 
+            📢 Recent NIRF Ranking: Top 10 Engineering Institutes | 
+            🎓 Upcoming Convocation Ceremony on March 15th | 
+            📋 New Research Grants Announced
+        </div>
+    </div>
+    <hr style="border-top:5px solid #00366d">
+
+    <!-- Image Slider -->
+    <div class="slider">
+        <div class="slide">
+            <img src="images.jpg" alt="Campus View 1">
+        </div>
+        <div class="slide">
+            <img src="Vi.jpg" alt="Campus View 2">
+        </div>
+        <div class="slide">
+            <img src="MoU.jpg" alt="Campus View 3">
+        </div>
+        <div class="slide">
+            <img src="Na.jpg" alt="Campus View 4">
+        </div>
+    </div>
+    <hr style="border-top:5px solid #00366d">
+
+    <!-- News & Events -->
+    <div class="news-events">
+        <div class="news-section">
+            <h2 class="section-title">Latest News</h2>
+            <ul class="news-list">
+                <li>NITW Researchers Develop New Green Technology</li>
+                <li>International Conference on Emerging Technologies Announced</li>
+                <li>MoU Signed with Leading Industry Partners</li>
+                <li>Students Win National Level Technical Competition</li>
+                <li>New Center of Excellence Inaugurated</li>
+            </ul>
+        </div>
+        <div class="events-section">
+            <h2 class="section-title">Upcoming Events</h2>
+            <ul class="events-list">
+                <li>Feb 20: Technical Symposium 2025</li>
+                <li>Feb 25: Industry Expert Guest Lecture</li>
+                <li>Mar 05: Annual Sports Meet</li>
+                <li>Mar 15: Cultural Festival</li>
+                <li>Mar 20: Alumni Meet 2025</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Campus Life -->
+    <div class="campus-life">
+        <h2 class="section-title">Campus Life</h2>
+        <div class="campus-images">
+            <div class="campus-image">
+                <img src="https://nitw.ac.in/api/static/files/Bathukamma_2024-10-9-11-20-42.jpg" alt="Academic Block">
+            </div>
+            <div class="campus-image">
+                <img src="https://nitw.ac.in/api/static/files/Ek_Ped_Maa_Ke_Nam2_2024-9-20-18-50-30.jpg" alt="Library">
+            </div>
+            <div class="campus-image">
+                <img src="https://nitw.ac.in/api/static/files/Swachhata_Campaign2_2024-9-20-18-51-30.jpg" alt="Sports Complex">
+            </div>
+            <div class="campus-image">
+                <img src="https://nitw.ac.in/api/static/files/Ek_Ped_Maa_Ke_Nam_2024-9-20-18-48-19.jpg" alt="Hostel">
+            </div>
+        </div>
+    </div>
+
+     <!-- Footer Section -->
+     <footer class="footer">
+        <p>&copy; 2025 National Institute of Technology, Warangal. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com" target="_blank">
+                <img src="download3.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="download.jpg" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="download2.png" alt="YouTube">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
