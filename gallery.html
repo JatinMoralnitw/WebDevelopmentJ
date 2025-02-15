@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty of Uttar Pradesh</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #eef2f3;
+            padding: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .header {
+            text-align: center;
+            background-color: #0077b6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .box {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #0077b6;
+        }
+
+        .box .content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .box .content h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .box .content p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Beauty of Uttar Pradesh</h1>
+    </div>
+    <div class="container">
+        <div class="box">
+            <img src="#" alt="Taj Mahal">
+            <div class="content">
+                <h3>Taj Mahal</h3>
+                <p>Agra, Uttar Pradesh</p>
+            </div>
+        </div>
+        <div class="box">
+            <img src="#" alt="Bara Imambara">
+            <div class="content">
+                <h3>Bara Imambara</h3>
+                <p>Lucknow, Uttar Pradesh</p>
+            </div>
+        </div>
+        <div class="box">
+            <img src="#" alt="Sarnath">
+            <div class="content">
+                <h3>Sarnath</h3>
+                <p>Varanasi, Uttar Pradesh</p>
+            </div>
+        </div>
+        <div class="box">
+            <img src="#" alt="Fatehpur Sikri">
+            <div class="content">
+                <h3>Fatehpur Sikri</h3>
+                <p>Agra, Uttar Pradesh</p>
+            </div>
+        </div>
+        <div class="box">
+            <img src="#" alt="Jhansi Fort">
+            <div class="content">
+                <h3>Jhansi Fort</h3>
+                <p>Jhansi, Uttar Pradesh</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

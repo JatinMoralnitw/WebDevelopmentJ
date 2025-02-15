@@ -1,0 +1,84 @@
+<html>
+    <head>
+    <title>form for hotel booking</title>
+    <style> 
+    body{
+        background-color:#33FFFF;
+    }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color:#fff;
+            padding:20px;
+            border-radius:10px;
+        }
+        .form-container input, .form-container textarea, .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button{
+            background-color: rgb(255,216,20); 
+        }
+        button:hover{
+        background-color:rgb(255,135,0);
+        }
+        .Method{
+            max-width: 500px;
+            margin:10px auto;
+            padding:20px;
+            border-radius:10px;
+            background-color:#FF99FF;
+        }
+
+    </style>
+</head>
+    <body>
+      
+        <div id="booking" class="content">
+            <h1 style ="text-align : center ;">Hotel Booking</h1>
+            <div class="form-container">
+                <form action="[form-action-link]" method="POST">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+    
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="number">Number of person</label>
+                    <input type="number" id="number" required>
+    
+                    <label for="checkin">Check-in Date:</label>
+                    <input type="date" id="checkin" name="checkin" required>
+    
+                    <label for="checkout">Check-out Date:</label>
+                    <input type="date" id="checkout" name="checkout" required>
+                    
+                    <label for="requirements">Special Requirements:</label>
+                    <textarea id="requirements" name="requirements"></textarea>
+                    <button type="submit">Book Now</button>
+                    </div>
+                </form>
+                    <div class="Method" style="text-align : center ;">
+                        <h3>Payment method</h3>  
+     
+                        <input type="radio" id="UPI" name="fav_language">
+                        <label for ="UPI">UPI</label>
+     
+                        <input type="radio" id="CRE" name="fav_language">
+                         <label for ="CRE">Credit or Debit card</label>
+     
+                         <input type="radio" id="cash" name="fav_language">
+                         <label for ="cash">Cash</label>
+                         
+                         <input type="radio" id="Net banking" name="fav_language">
+                         <label for ="Net banking">Net banking</label>
+                     </div>
+                </div>
+    </body>
+</html>

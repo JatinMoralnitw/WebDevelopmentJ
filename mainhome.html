@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>Project 1</title>
+        <style>
+            body{
+        font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color:#9b9797;
+    }
+header{
+    background-color:blueviolet;
+    text-align:center;
+    padding:20px;
+    margin:auto;
+
+}
+header div h1{
+      animation: slideIn 1s ease-out;
+    }
+    header div h2{
+      animation: slideIn 1s ease-out;
+    }
+    header div h3{
+      animation: slideIn 1s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container{
+            width :80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;margin-bottom: 20px;
+            border-radius:8px; 
+        }
+        footer {
+   background-color: #404040;
+ color: white;
+ text-align: center;
+  padding: 0px;
+    position: fixed;
+    width: 100%;
+bottom :0;
+        }
+        </style>
+    </head>
+    <body>
+        <header style="display:flex; gap:200px;">
+<img src="https://formbuilder.ccavenue.com/live/uploads/company_image/406/16681666084948_nitwarangal.png"alt="this is an image">
+<div>
+    <h1>By Jatin Moral</h1>
+    <h2>24CSB0B28</h2>
+    <H3>WP Lab assignment</H3>
+</div>
+        </header>
+        <nav style="text-align:center; display: flex; justify-content: center;background-color: #333;">
+            <a href="mainpage.html" target="_main">Home</a>
+            <a href="heritage.html" target="_main">Heritage</a>
+            <a href="form.html" target="_main">Hotel Booking</a>
+            <a href="gallery.html" target="_main">Gallery</a>
+        </nav>
+        <div class="container">
+            <h1>This page contain </h1>
+            <div style="display:flex">
+            <ul>
+                <li><strong>Home</strong></li>
+                <li><strong>Heritage</strong></li>
+                <li><strong>Hotel Booking</strong></li>
+                <li><strong>Gallery</strong></li>
+            </ul>
+            <ul>
+                <li> takes you to the main page os the site</li>
+                <li> contain a brief history and glory of the heritage sites</li>
+                <li> Give you an easy way to book an hotel</li>
+                <li> set of beautiful images of the state</li>
+            </ul>
+        </div>
+        </div>
+        <footer>
+            <p>&copy; 2025 My Blog. All Rights Reserved.</p>
+            </footer>
+    </body>
+</html>
