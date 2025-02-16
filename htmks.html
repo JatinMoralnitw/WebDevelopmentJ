@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .hero-content span {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-7px);
+        }
+
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-effect 0.6s linear;
+        }
+
+        @keyframes ripple-effect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        /* Blog Section */
+        .blog-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .category-btn {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-btn:hover {
+            transform: scale(1.1);
+            background: #007bff;
+            color: white;
+        }
+
+        /* Subscribe Section */
+        .subscribe-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(45deg, #007bff, #00bfff);
+            color: white;
+        }
+
+        .subscribe-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .subscribe-btn {
+            padding: 1rem 2rem;
+            background: white;
+            color: #007bff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #404040;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            color:black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIBHIwuppVtTYSO7BRWkR_Z_U-OxGKPI3QwQ&s" style="height:70px;">
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#blog">Blog</a>
+                <a href="#categories">Categories</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to <span>BlogFolio</span></h1>
+            <button class="cta-button" onclick="createRipple(event)">Start Reading</button>
+        </div>
+    </section>
+
+    <script>
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const circle = document.createElement("span");
+            
+            const diameter = Math.max(button.clientWidth, button.clientHeight);
+            const radius = diameter / 2;
+            
+            circle.style.width = circle.style.height = `${diameter}px`;
+            circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+            circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+            circle.classList.add("ripple");
+            
+            const existingRipple = button.getElementsByClassName("ripple")[0];
+            if (existingRipple) {
+                existingRipple.remove();
+            }
+            
+            button.appendChild(circle);
+        }
+    </script>
+
+    <section class="blog-section" id="blog">
+        <h2>Latest Posts</h2>
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo65RIE73278rMtMJrdKnp_3XuNqG0Yi-_VQ&s" alt="Blog post 1">
+                </div>
+                <div class="blog-content">
+                    <h3>The Art of Design</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quis quia provident ducimus sunt enim molestias cupiditate porro consequatur id iusto vel voluptates hic officia eius aliquam magnam saepe possimus qui temporibus ratione sint, nam atque. Quis at optio, necessitatibus accusantium beatae quaerat similique dicta porro! Iusto illo iste qui quidem dignissimos. Autem iste alias deserunt, dolor animi exercitationem voluptatum eos eius sint magnam odit minima quas eum similique mollitia illo! Voluptate doloribus fugit harum facilis quod nulla et reprehenderit eum minima expedita alias quaerat veritatis adipisci, magnam voluptatum ad incidunt rem ducimus cum unde? Dolor ut aliquam aspernatur expedita aliquid, eveniet consectetur omnis beatae iusto, veritatis recusandae distinctio nihil voluptatem blanditiis, nostrum quidem. Atque alias cumque praesentium placeat odio perferendis in id et numquam voluptatibus ea animi, quam, tempore ipsum maiores culpa officiis nostrum doloribus fugiat? Aliquam consectetur ipsam unde eum placeat architecto expedita deleniti, accusantium modi, vitae, incidunt fuga quia molestias nisi veniam ex soluta aperiam quidem ullam. Error enim quidem accusantium saepe dicta asperiores ipsam nesciunt deleniti nam quaerat architecto repellat veniam est soluta id, aliquid magni velit deserunt, praesentium sit ab rem. Consequatur corrupti facilis autem, repellendus cumque minima! Animi in et, nam iusto ullam quod aperiam quisquam id quae sed dicta, qui dolore sapiente! Ipsum, veniam sunt numquam totam nisi dicta excepturi repudiandae, ratione assumenda odit fugit qui quod eaque inventore adipisci et labore dolorem placeat expedita. Numquam obcaecati eligendi aspernatur, quam tempore placeat aliquam nisi fuga corrupti magnam atque saepe quos natus distinctio ex reiciendis fugit quisquam? Ab amet neque illum! Quae tempore iste placeat voluptatum cum, error sit fugit dolores, quos mollitia odio fugiat, facere eos voluptates voluptate tempora magnam odit doloribus ab aut rem culpa delectus eaque voluptatibus? Quam error amet neque ex, obcaecati inventore fugiat nulla delectus ipsa doloremque. Accusamus, perferendis!
+                    </p>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://la-technologie.fr/wp-content/uploads/2022/01/26513-MDM.jpeg" alt="Blog post 2">
+                </div>
+                <div class="blog-content">
+                    <h3>Future of Technology</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus recusandae debitis ducimus omnis, soluta iste dolorem illum ipsa, rem aliquam dolore sequi incidunt at, consequatur sit. Nostrum rerum sequi magnam modi sed distinctio incidunt esse debitis accusantium veritatis optio, repellendus culpa odio eaque cupiditate neque aut, quam quia iure quidem eius placeat provident similique labore. Accusantium, dolorem repellendus. Temporibus reiciendis alias beatae nobis repellendus nesciunt delectus dicta illum? Aliquam vel amet provident maiores sunt, incidunt magni autem quod quis fugiat omnis praesentium dolor nostrum maxime sed! Delectus minus maxime magni a impedit laudantium in quod accusamus provident corporis modi natus quaerat assumenda qui eum dicta, temporibus itaque eligendi saepe officia aliquam! Expedita, minima nisi et, error eaque dignissimos similique non autem sit sunt aut. Repudiandae dolores culpa quod ipsum quidem dolor, iusto minima magnam illo animi magni saepe dolorem laborum doloremque accusantium voluptas praesentium odit? Ad quae asperiores enim eos esse nesciunt dignissimos fuga amet in consectetur atque nobis neque recusandae, nemo eaque hic quibusdam similique exercitationem eius autem ratione nisi debitis voluptate. In consectetur, voluptatibus consequuntur laudantium, reiciendis quas explicabo quia dolore cumque distinctio nemo itaque provident, soluta voluptate corrupti? Sint voluptatibus distinctio quod delectus aut. Optio dicta iusto eaque hic animi tempora corrupti libero molestiae velit autem quibusdam magni architecto aspernatur facilis, harum aperiam enim! Omnis consequuntur vel magnam? Saepe magnam praesentium, fugit nemo tempore est ratione quas. Ratione ut voluptas dolorem fugit, quo expedita obcaecati assumenda dolore deserunt porro beatae quam. Esse qui, quaerat at dignissimos eligendi temporibus quam, illo sed architecto voluptas atque minus placeat expedita quos voluptate rerum hic nihil quas impedit nostrum. Deserunt, repellat, labore officia, earum voluptatibus expedita iusto nobis libero accusantium error quibusdam natus. Explicabo, ducimus eveniet quod praesentium dicta maxime! Id vero voluptatum quam quisquam asperiores libero beatae ipsam cum quidem!
+                    </p>
+                </div>
+            </article>
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="data:image/jpeg;base64,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" alt="Blog post 3">
+                </div>
+                <div class="blog-content">
+                    <h3>Creative Writing</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea mollitia facere, dolorum explicabo minima pariatur nesciunt reprehenderit sit dicta, odio nemo excepturi cupiditate modi aliquam velit inventore doloremque eius ullam doloribus quidem nihil hic soluta iste? Modi accusamus similique, voluptates cumque itaque consequatur debitis officia, sint aperiam fugit, iste laborum? Nesciunt voluptatem laudantium eos adipisci ipsa nam amet, doloremque quo nobis impedit minima. Maxime repudiandae quas nihil illum molestiae in cumque placeat perspiciatis, libero magni aliquam natus cum porro eveniet velit ipsum obcaecati voluptatum? Nulla laudantium sit doloremque suscipit quam dolorem sunt adipisci libero nihil minima. In quam ab fugiat. Ullam porro iusto odit, est praesentium qui assumenda quod aspernatur dolores ut ducimus minus deleniti cupiditate mollitia, debitis similique officia nostrum beatae eius quis nesciunt. Distinctio perspiciatis facere quam repellendus beatae hic expedita voluptatum excepturi voluptate ex, reprehenderit dolor quo suscipit odio fugiat accusamus exercitationem cumque et quia molestiae a assumenda. Deleniti dolores excepturi non magni odio, aliquam culpa nisi, hic earum repellat dolor! Officia ea tempora ullam pariatur nulla id error amet veritatis numquam recusandae cupiditate deserunt excepturi quos odit dignissimos placeat, nisi corrupti porro reiciendis facere tempore. Cum temporibus atque excepturi mollitia fuga esse assumenda nemo deleniti dicta similique sint neque quidem ex ad aliquid facere, eligendi voluptates necessitatibus laudantium? Dolorem voluptatem numquam voluptatum minus? Eum placeat sunt earum, iste laborum itaque dolorum sit voluptates reiciendis facere alias culpa laudantium amet odit dicta et quae similique molestias. Pariatur vitae est cupiditate. Quidem, officia nam deleniti repudiandae delectus suscipit quos quam reiciendis nostrum nobis architecto explicabo expedita eaque culpa? Similique vel nesciunt, repudiandae corporis eum perspiciatis earum rem nam blanditiis reprehenderit quisquam debitis nostrum harum maiores delectus placeat optio ad inventore fugiat voluptates nisi corrupti fuga impedit! Ex nobis repellendus nesciunt aut perferendis optio ut delectus temporibus ratione ad?
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="categories-section" id="categories">
+        <h2>Categories</h2>
+        <div class="category-buttons">
+            <div class="category-btn">Design</div>
+            <div class="category-btn">Tech</div>
+            <div class="category-btn">Writing</div>
+            <div class="category-btn">Travel</div>
+        </div>
+    </section>
+
+    <section class="subscribe-section">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form class="subscribe-form">
+            <input type="text" class="form-input" placeholder="Name">
+            <input type="email" class="form-input" placeholder="Email">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 BlogFolio. All rights reserved.</p>
+        <div class="social-icons">
+            <div class="social-icon">FB</div>
+            <div class="social-icon">TW</div>
+            <div class="social-icon">IG</div>
+        </div>
+    </footer>
+</body>
+</html>
