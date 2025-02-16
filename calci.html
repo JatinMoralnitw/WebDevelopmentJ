@@ -1,0 +1,130 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to bottom right, #d1f3f3, #f8e1d4);
+      font-family: Arial, sans-serif;
+    }
+    .calculator {
+      width: 300px;
+      background-color: #3c4e6f;
+      border-radius: 16px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+    .display {
+      background-color: #0a1b37;
+      color: white;
+      font-size: 2rem;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: right;
+      margin-bottom: 20px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    button {
+      background-color: #7882a4;
+      color: white;
+      font-size: 1.2rem;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #5a6484;
+    }
+    button.equals {
+      background-color: #f06262;
+      grid-column: span 2;
+    }
+    button.equals:hover {
+      background-color: #d45151;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">0</div>
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="toggleSign()">+/-</button>
+      <button onclick="appendCharacter('%')">%</button>
+      <button onclick="appendCharacter('/')">/</button>
+      <button onclick="appendCharacter('7')">7</button>
+      <button onclick="appendCharacter('8')">8</button>
+      <button onclick="appendCharacter('9')">9</button>
+      <button onclick="appendCharacter('*')">*</button>
+      <button onclick="appendCharacter('4')">4</button>
+      <button onclick="appendCharacter('5')">5</button>
+      <button onclick="appendCharacter('6')">6</button>
+      <button onclick="appendCharacter('-')">-</button>
+      <button onclick="appendCharacter('1')">1</button>
+      <button onclick="appendCharacter('2')">2</button>
+      <button onclick="appendCharacter('3')">3</button>
+      <button onclick="appendCharacter('+')">+</button>
+      <button onclick="appendCharacter('0')">0</button>
+      <button onclick="appendCharacter('.')">.</button>
+      <button class="equals" onclick="calculateResult()">=</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.querySelector(".display");
+    let currentInput = "0";
+
+    function appendCharacter(char) {
+      if (currentInput === "0" && char !== '.') {
+        currentInput = char;
+      } else {
+        currentInput += char;
+      }
+      updateDisplay();
+    }
+
+    function clearDisplay() {
+      currentInput = "0";
+      updateDisplay();
+    }
+
+    function toggleSign() {
+      if (currentInput !== "0") {
+        if (currentInput.startsWith("-")) {
+          currentInput = currentInput.substring(1);
+        } else {
+          currentInput = "-" + currentInput;
+        }
+      }
+      updateDisplay();
+    }
+
+    function calculateResult() {
+      try {
+        currentInput = eval(currentInput).toString();
+      } catch (e) {
+        currentInput = "Error";
+      }
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      display.textContent = currentInput;
+    }
+  </script>
+</body>
+</html>
