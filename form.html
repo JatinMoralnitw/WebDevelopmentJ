@@ -1,84 +1,138 @@
-<html>
-    <head>
-    <title>form for hotel booking</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Form</title>
     <style> 
-    body{
-        background-color:#33FFFF;
-    }
+        body {
+            background-color: #33FFFF;
+        }
         .form-container {
             max-width: 500px;
             margin: 0 auto;
-            background-color:#fff;
-            padding:20px;
-            border-radius:10px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
         }
-        .form-container input, .form-container textarea, .form-container button {
+        .form-container input, .form-container textarea, .form-container button{
             width: 100%;
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        button{
-            background-color: rgb(255,216,20); 
+        button {
+            background-color: rgb(255,216,20);
         }
-        button:hover{
-        background-color:rgb(255,135,0);
+        button:hover {
+            background-color: rgb(255,135,0);
         }
-        .Method{
+        .Method {
             max-width: 500px;
-            margin:10px auto;
-            padding:20px;
-            border-radius:10px;
-            background-color:#FF99FF;
+            margin: 10px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #FF99FF;
         }
-
+        .error {
+            color: red;
+            font-size: 14px;
+        }
     </style>
-</head>
-    <body>
-      
-        <div id="booking" class="content">
-            <h1 style ="text-align : center ;">Hotel Booking</h1>
-            <div class="form-container">
-                <form action="[form-action-link]" method="POST">
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required>
-    
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-    
-                    <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" required>
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let numberOfPersons = document.getElementById("number").value;
+            let checkin = document.getElementById("checkin").value;
+            let checkout = document.getElementById("checkout").value;
+            let paymentMethods = document.querySelectorAll('input[name="payment"]:checked');
 
-                    <label for="number">Number of person</label>
-                    <input type="number" id="number" required>
-    
-                    <label for="checkin">Check-in Date:</label>
-                    <input type="date" id="checkin" name="checkin" required>
-    
-                    <label for="checkout">Check-out Date:</label>
-                    <input type="date" id="checkout" name="checkout" required>
-                    
-                    <label for="requirements">Special Requirements:</label>
-                    <textarea id="requirements" name="requirements"></textarea>
-                    <button type="submit">Book Now</button>
-                    </div>
-                </form>
-                    <div class="Method" style="text-align : center ;">
-                        <h3>Payment method</h3>  
-     
-                        <input type="radio" id="UPI" name="fav_language">
-                        <label for ="UPI">UPI</label>
-     
-                        <input type="radio" id="CRE" name="fav_language">
-                         <label for ="CRE">Credit or Debit card</label>
-     
-                         <input type="radio" id="cash" name="fav_language">
-                         <label for ="cash">Cash</label>
-                         
-                         <input type="radio" id="Net banking" name="fav_language">
-                         <label for ="Net banking">Net banking</label>
-                     </div>
-                </div>
-    </body>
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[a-z]{2,3}$/;
+            let phonePattern = /^[0-9]{10}$/;
+
+            let errorMessage = "";
+
+            if (name.length < 3){
+                errorMessage += "Full Name must be at least 3 characters long.\n";
+            }
+
+            if (!email.match(emailPattern)) {
+                errorMessage += "Please enter a valid email address.\n";
+            }
+
+            if (!phone.match(phonePattern)) {
+                errorMessage += "Phone number must be a 10-digit numeric value.\n";
+            }
+
+            if (numberOfPersons < 1) {
+                errorMessage += "Number of persons must be at least 1.\n";
+            }
+
+            if (checkin === "" || checkout === "") {
+                errorMessage += "Check-in and Check-out dates are required.\n";
+            } else if (new Date(checkin) >= new Date(checkout)) {
+                errorMessage += "Check-out date must be after the check-in date.\n";
+            }
+
+            if (paymentMethods.length === 0) {
+                errorMessage += "Please select a payment method.\n";
+            }
+
+            if (errorMessage) {
+                alert(errorMessage);
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div id="booking" class="content">
+        <h1 style="text-align: center;">Hotel Booking</h1>
+        <div class="form-container">
+            <form action="[form-action-link]" method="POST" onsubmit="return validateForm()">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="number">Number of Persons:</label>
+                <input type="number" id="number" min="1" required>
+
+                <label for="checkin">Check-in Date:</label>
+                <input type="date" id="checkin" name="checkin" required>
+
+                <label for="checkout">Check-out Date:</label>
+                <input type="date" id="checkout" name="checkout" required>
+
+                <label for="requirements">Special Requirements:</label>
+                <textarea id="requirements" name="requirements"></textarea>
+
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+
+        <div class="Method" style="text-align: center;">
+            <h3>Payment Method</h3>  
+            <input type="radio" id="UPI" name="payment" value="UPI">
+            <label for="UPI">UPI</label>
+
+            <input type="radio" id="CRE" name="payment" value="Credit/Debit Card">
+            <label for="CRE">Credit/Debit Card</label>
+
+            <input type="radio" id="cash" name="payment" value="Cash">
+            <label for="cash">Cash</label>
+
+            <input type="radio" id="NetBanking" name="payment" value="Net Banking">
+            <label for="NetBanking">Net Banking</label>
+        </div>
+    </div>
+</body>
 </html>
