@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Features Demo</title>
+    <link rel="stylesheet" href="styleassignment9.css">
+</head>
+<body>
+    <header>
+        <h1>Assignment 9</h1>
+    </header>
+    <section>
+        <h2>Light & Dark Mode</h2>
+        <div class="toggle-container">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider"></span>
+            </label>
+            <span id="themeLabel">Light Mode</span>
+        </div>
+    </section>
+    <section>
+        <h2>Countdown Timer with Color Indicator</h2>
+        <div class="timer-container" id="timerContainer">
+            <div>
+                <input type="number" id="timerInput" min="1" value="15" placeholder="Enter seconds">
+                <button id="startTimer">Start</button>
+            </div>
+            <div class="timer-display" id="timerDisplay">00</div>
+            <div class="timer-controls">
+                <button id="pauseTimer">Pause</button>
+                <button id="resumeTimer">Resume</button>
+                <button id="resetTimer">Reset</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Change Style of HTML Element</h2>
+        <div class="style-changer">
+            <div id="targetElement">This element's style can be changed</div>
+            <div>
+                <label>Background Color:</label>
+                <input type="color" id="bgColorPicker" value="#ffffff">
+                
+                <label>Text Color:</label>
+                <input type="color" id="textColorPicker" value="#000000">
+                
+                <label>Font Size:</label>
+                <input type="range" id="fontSizeSlider" min="12" max="36" value="16">
+                <span id="fontSizeValue">16px</span>
+                
+                <button id="applyStyles">Apply Styles</button>
+                <button id="resetStyles">Reset Styles</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>List Manipulator</h2>
+        <div class="list-container">
+            <div>
+                <input type="text" id="itemInput" placeholder="Add item">
+                <button id="addItem">Add Item</button>
+            </div>
+            <ul id="itemList">
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Cherry</li>
+                <li>Apple</li>
+                <li>Dragon Fruit</li>
+            </ul>
+            <div>
+                <button id="sortList">Sort Alphabetically</button>
+                <button id="removeDuplicates">Remove Duplicates</button>
+                <button id="reverseList">Reverse Order</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Dynamic Table</h2>
+        <div>
+            <input type="text" id="nameInput" placeholder="Name">
+            <input type="number" id="cgpaInput" placeholder="CGPA" step="0.01" min="0" max="10">
+            <button id="addRow">Add Row</button>
+        </div>
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>CGPA</th>
+                    <th>Result</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>8.5</td>
+                    <td>Pass</td>
+                    <td>
+                        <button class="editRow">Edit</button>
+                        <button class="deleteRow">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>9.2</td>
+                    <td>Pass</td>
+                    <td>
+                        <button class="editRow">Edit</button>
+                        <button class="deleteRow">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mark Johnson</td>
+                    <td>4.5</td>
+                    <td>Fail</td>
+                    <td>
+                        <button class="editRow">Edit</button>
+                        <button class="deleteRow">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h2>Interactive Image Gallery</h2>
+        <div class="gallery">
+            <img src="img1assignment9.jpg" alt="Placeholder 1" class="thumbnail">
+            <img src="img2assignment9.jpg" alt="Placeholder 2" class="thumbnail">
+            <img src="img3assignment9.jpg" alt="Placeholder 3" class="thumbnail">
+            <img src="img4assignment9.jpg" alt="Placeholder 4" class="thumbnail">
+            <img src="img5assignment9.jpg" alt="Placeholder 5" class="thumbnail">
+        </div>
+        <div id="imageModal" class="modal" style="display: none;">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="expandedImage">
+        </div>
+    </section>
+    <script src="Assignment9j.js"></script>
+</body>
+</html>
