@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Application Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input, select {
+            width: 95%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 2px solid #66a6ff;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+        input:focus, select:focus {
+            border-color: #ff6b6b;
+        }
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #66a6ff;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff6b6b;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .success {
+            color: green;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Visa Application Form</h2>
+        <form id="visaForm">
+            <input type="text" id="name" placeholder="Enter your name">
+            <div id="nameError" class="error"></div>
+            
+            <input type="text" id="passport" placeholder="Enter passport number (8-10 characters)">
+            <div id="passportError" class="error"></div>
+            
+            <select id="country">
+                <option value="">-- Select a country --</option>
+                <option value="U">United States</option>
+                <option value="C">Canada</option>
+                <option value="I">India</option>
+                <option value="UK">United Kingdom</option>
+                <option value="AUS">Australia</option>
+            </select>
+            <div id="countryError" class="error"></div>
+            
+            <button type="button" onclick="validateForm()">Apply for Visa</button>
+        </form>
+        <div id="message" class="success"></div>
+    </div>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value.trim();
+            let passport = document.getElementById("passport").value.trim();
+            let country = document.getElementById("country").value;
+            let valid = true;
+            document.getElementById("nameError").innerText = "";
+            document.getElementById("passportError").innerText = "";
+            document.getElementById("countryError").innerText = "";
+            document.getElementById("message").innerText = "";
+
+            if (name === "") {
+                document.getElementById("nameError").innerText = "Name cannot be empty!";
+                valid = false;
+            }
+
+            if (passport === "" || passport.length < 8 || passport.length > 10) {
+                document.getElementById("passportError").innerText = "Invalid passport number!";
+                valid = false;
+            }
+
+            if (country === "") {
+                document.getElementById("countryError").innerText = "Please select a country!";
+                valid = false;
+            }
+            if (valid) {
+                document.getElementById("message").innerText = "Visa application submitted successfully!";
+            }
+        }
+    </script>
+
+</body>
+</html>

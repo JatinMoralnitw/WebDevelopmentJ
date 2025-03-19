@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Requirement Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        select, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        .info {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Visa Requirement Checker</h1>
+        
+        <label for="country">Select your country:</label>
+        <select id="country">
+            <option value="">-- Select Country --</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="India">India</option>
+            <option value="UK">UK</option>
+            <option value="Australia">Australia</option>
+        </select>
+        
+        <button id="checkVisa">Check Visa</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const countrySelect = document.getElementById('country');
+            const checkButton = document.getElementById('checkVisa');
+            const resultDiv = document.getElementById('result');
+            
+            function checkVisaRequirement() {
+                const selectedCountry = countrySelect.value;
+                
+                resultDiv.classList.remove('error', 'info');
+                
+                if (!selectedCountry) {
+                    resultDiv.textContent = "Please select a country.";
+                    resultDiv.classList.add('error');
+                    return;
+                }
+                
+                let message = "";
+                
+                switch(selectedCountry) {
+                    case "USA":
+                        message = "Visa required for most applicants.";
+                        break;
+                    case "Canada":
+                        message = "Visa required unless you have an eTA.";
+                        break;
+                    case "India":
+                        message = "Visa required before travel.";
+                        break;
+                    case "UK":
+                        message = "Visa depends on the duration of stay.";
+                        break;
+                    case "Australia":
+                        message = "eVisa available for eligible travelers.";
+                        break;
+                    default:
+                        message = "Information not available.";
+                }
+                
+                resultDiv.textContent = message;
+                resultDiv.classList.add('info');
+            }
+            
+            checkButton.addEventListener('click', checkVisaRequirement);
+        });
+    </script>
+</body>
+</html>        
