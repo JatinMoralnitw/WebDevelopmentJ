@@ -5,64 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visa Application Form</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 4s ease infinite;
         }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
         .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
             text-align: center;
             width: 350px;
+            backdrop-filter: blur(5px);
         }
+        
         h2 {
-            margin-bottom: 20px;
-            color: #333;
+            margin-bottom: 25px;
+            color: #e73c7e;
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
+        
         input, select {
             width: 95%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 2px solid #66a6ff;
-            border-radius: 5px;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #23a6d5;
+            border-radius: 8px;
             font-size: 16px;
+            font-family: 'Poppins', sans-serif;
             outline: none;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
         }
+        
         input:focus, select:focus {
-            border-color: #ff6b6b;
+            border-color: #e73c7e;
+            box-shadow: 0 0 8px rgba(231, 60, 126, 0.4);
         }
+        
         button {
             width: 100%;
-            margin-top: 15px;
-            padding: 10px;
+            margin-top: 20px;
+            padding: 12px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 16px;
-            background: #66a6ff;
+            font-weight: 600;
+            background: linear-gradient(45deg, #23a6d5, #23d5ab);
+            background-size: 200% 200%;
+            animation: buttonGradient 5s ease infinite;
             color: white;
             cursor: pointer;
             transition: 0.3s;
+            font-style: italic;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+        
+        @keyframes buttonGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
         button:hover {
-            background: #ff6b6b;
+            background: linear-gradient(45deg, #e73c7e, #ee7752);
+            background-size: 200% 200%;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
         }
+        
         .error {
-            color: red;
+            color: #e73c7e;
             font-size: 14px;
             margin-top: 5px;
+            font-weight: 300;
         }
+        
         .success {
-            color: green;
-            font-size: 16px;
-            margin-top: 10px;
+            color: #23d5ab;
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+        
+        ::placeholder {
+            color: #999;
+            font-style: italic;
         }
     </style>
 </head>
