@@ -7,13 +7,28 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #89f7fe, #66a6ff);
             display: flex;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 4s ease infinite;
             height: 100vh;
             margin: 0;
         }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
         .container {
             background: white;
             padding: 20px;
@@ -25,6 +40,7 @@
         h2 {
             margin-bottom: 20px;
             color: #333;
+            font-style:oblique;
         }
         select {
             width: 100%;
